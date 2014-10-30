@@ -22,7 +22,7 @@
 *da;
 
 @property (nonatomic,strong) NSMutableData *d1;
-
+@property (nonatomic,strong) NSMutableData *d2;
 
 @end
 
