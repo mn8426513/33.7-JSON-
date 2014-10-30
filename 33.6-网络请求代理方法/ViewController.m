@@ -17,6 +17,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *returnLabel;
 
 @property (nonatomic,strong) NSMutableData *data;
+
+@property (nonatomic,strong) NSMutableData
+*da;
+
+@property (nonatomic,strong) NSMutableData *d1;
+
+
 @end
 
 @implementation ViewController
@@ -27,6 +34,12 @@
 }
 
 
+
+-(NSString*)name {
+
+     return  @"hello  name ";
+
+}
 - (void)getLogin{
     
     if(self.loginFiled.text==nil|self.PwdFiled.text==nil) return ;
