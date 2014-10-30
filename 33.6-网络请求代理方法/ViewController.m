@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NSString+Password.h"
+#import "UserInfo.h"
 
 @interface ViewController ()<NSURLConnectionDataDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *loginFiled;
@@ -16,13 +17,8 @@
 - (IBAction)loginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *returnLabel;
 
-@property (nonatomic,strong) NSMutableData *data;
 
-@property (nonatomic,strong) NSMutableData
-*da;
 
-@property (nonatomic,strong) NSMutableData *d1;
-@property (nonatomic,strong) NSMutableData *d2;
 
 @end
 
@@ -35,11 +31,6 @@
 
 
 
--(NSString*)name {
-
-     return  @"hello  name ";
-
-}
 - (void)getLogin{
     
     if(self.loginFiled.text==nil|self.PwdFiled.text==nil) return ;
@@ -51,49 +42,29 @@
     
     // 这个是一个很古老的方法 有十多岁了
     
-    NSURLConnection  *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+   [NSURLConnection sendAsynchronousRequest: request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+       if(connectionError == nil){
+        //  反序列化
+           UserInfo *user = [[UserInfo alloc] init];
+           //  就一句话
+           NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+           [user setValuesForKeysWithDictionary:dict];
+        
+        
+           [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+               
+               self.returnLabel.text = user.userName;
+               
+           }];
+        
+        
+        
+       
+       }
+    }];
     
-    dispatch_async(dispatch_queue_create("Myqueue", DISPATCH_QUEUE_CONCURRENT), ^{
-        [connection start];
-    });
+   
     
-}
-
-#pragma  mark  NSURLConnectionDataDelegate 的代理方法
-#pragma  mark  接受到响应
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    // 准备工作
-    // 按钮点击就会有网络请求,为了避免重复开辟空间
-    if (!self.data) {
-        self.data = [NSMutableData data];
-    } else {
-        [self.data setData:nil];
-    }
-}
-
-#pragma mark 接收到数据,如果数据量大,例如视频,会被多次调用
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    // 拼接数据,二进制流的体现位置
-    [self.data appendData:data];
-}
-
-#pragma mark 接收完成,做最终的处理工作
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // 最终处理
-    NSString *str = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
-    
-    self.returnLabel.text = str;
-    NSLog(@"%@ %@ ",  self.returnLabel.text , [NSThread currentThread]);
-}
-
-#pragma mark 出错处理,网络的出错可能性非常高
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"%@", error.localizedDescription);
 }
 
 - (IBAction)loginBtn {

@@ -14,6 +14,7 @@
 		041BCBAA19FF8F4400542008 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BCBA919FF8F4400542008 /* Images.xcassets */; };
 		041BCBB619FF8F4400542008 /* _3_6_________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 041BCBB519FF8F4400542008 /* _3_6_________Tests.m */; };
 		041BCBC119FF99DB00542008 /* NSString+Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 041BCBC019FF99DB00542008 /* NSString+Password.m */; };
+		04FD7B8E1A027546003532A1 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD7B8D1A027546003532A1 /* UserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		041BCBB519FF8F4400542008 /* _3_6_________Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_3_6_________Tests.m"; sourceTree = "<group>"; };
 		041BCBBF19FF99DB00542008 /* NSString+Password.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Password.h"; sourceTree = "<group>"; };
 		041BCBC019FF99DB00542008 /* NSString+Password.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Password.m"; sourceTree = "<group>"; };
+		04FD7B8C1A027546003532A1 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		04FD7B8D1A027546003532A1 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 		041BCB9B19FF8F4300542008 /* 33.6-网络请求代理方法 */ = {
 			isa = PBXGroup;
 			children = (
+				04FD7B8B1A027515003532A1 /* Model */,
 				041BCBBF19FF99DB00542008 /* NSString+Password.h */,
 				041BCBC019FF99DB00542008 /* NSString+Password.m */,
 				041BCBA019FF8F4300542008 /* AppDelegate.h */,
@@ -119,6 +123,15 @@
 				041BCBB419FF8F4400542008 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04FD7B8B1A027515003532A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04FD7B8C1A027546003532A1 /* UserInfo.h */,
+				04FD7B8D1A027546003532A1 /* UserInfo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +236,7 @@
 				041BCBC119FF99DB00542008 /* NSString+Password.m in Sources */,
 				041BCBA519FF8F4300542008 /* ViewController.m in Sources */,
 				041BCBA219FF8F4300542008 /* AppDelegate.m in Sources */,
+				04FD7B8E1A027546003532A1 /* UserInfo.m in Sources */,
 				041BCB9F19FF8F4300542008 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +422,7 @@
 				041BCBBB19FF8F4400542008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		041BCBBC19FF8F4400542008 /* Build configuration list for PBXNativeTarget "33.6-网络请求代理方法Tests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +431,7 @@
 				041BCBBE19FF8F4400542008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
